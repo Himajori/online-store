@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const confirmationNumber = document.getElementById("confirmationNumber");
   if (!content) return;
 
+  let stockMessage = "";
+
   function renderCart() {
     const lines = getCartLines();
 
@@ -16,13 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `;
+      stockMessage = "";
       return;
     }
 
     const rows = lines
       .map(
         (line) => `
-        <tr>
+        <tr class="${line.exceedsStock ? "stock-error-row" : ""}">
           <td>${line.id}</td>
           <td>${line.name}</td>
           <td>${formatMoney(line.price)}</td>
@@ -31,11 +34,18 @@ document.addEventListener("DOMContentLoaded", () => {
               class="qty-input"
               type="number"
               min="0"
+              max="${line.onHand}"
               step="1"
               value="${line.quantity}"
               data-product-id="${line.id}"
               aria-label="Quantity for ${line.name}"
             />
+            <p class="stock-note">On hand: ${line.onHand}</p>
+            ${
+              line.exceedsStock
+                ? `<p class="message error stock-inline">Quantity exceeds on-hand stock (${line.onHand}).</p>`
+                : ""
+            }
           </td>
           <td>${formatMoney(line.lineTotal)}</td>
         </tr>
@@ -60,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </tbody>
         </table>
       </div>
+      <p id="stockErrorBanner" class="message error" ${stockMessage ? "" : "hidden"}>${stockMessage || ""}</p>
       <div class="cart-summary">
         <p class="cart-total">Total: <span id="cartTotalAmount">${formatMoney(getCartTotal())}</span></p>
         <div class="actions">
@@ -72,15 +83,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     content.querySelectorAll(".qty-input").forEach((input) => {
       input.addEventListener("input", () => {
-        setCartQuantity(input.dataset.productId, input.value);
+        const result = setCartQuantity(input.dataset.productId, input.value);
+        stockMessage = result && result.ok === false ? result.error : "";
         renderCart();
       });
     });
 
     document.getElementById("placeOrderBtn").addEventListener("click", () => {
+      if (cartHasStockErrors()) {
+        stockMessage =
+          "Fix quantities that exceed on-hand stock before placing your order.";
+        renderCart();
+        return;
+      }
       const code = createConfirmationNumber();
       confirmationNumber.textContent = code;
       confirmBox.hidden = false;
+      stockMessage = "";
       clearCart();
       renderCart();
     });
@@ -89,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
       clearCart();
       confirmBox.hidden = true;
       confirmationNumber.textContent = "";
+      stockMessage = "";
       renderCart();
     });
   }

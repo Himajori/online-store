@@ -1,4 +1,4 @@
-/* Cart helpers for badge, add, update, clear, and totals */
+/* Cart helpers for badge, add, update, clear, totals, and stock checks */
 const CART_KEY = "harborline-cart";
 
 function readCart() {
@@ -17,6 +17,12 @@ function writeCart(cart) {
   window.dispatchEvent(new CustomEvent("cart-updated"));
 }
 
+function getOnHand(productId) {
+  const product = getProductById(productId);
+  const onHand = product ? Number(product.onHand) : 0;
+  return Number.isFinite(onHand) ? Math.max(0, onHand) : 0;
+}
+
 function getCartCount() {
   return Object.values(readCart()).reduce(
     (sum, qty) => sum + Number(qty || 0),
@@ -26,22 +32,47 @@ function getCartCount() {
 
 function addToCart(productId, quantity = 1) {
   const cart = readCart();
-  const next = Number(cart[productId] || 0) + Number(quantity);
-  cart[productId] = Math.max(1, next);
+  const onHand = getOnHand(productId);
+  const current = Number(cart[productId] || 0);
+  const requested = current + Number(quantity);
+  if (requested > onHand) {
+    return {
+      ok: false,
+      error: `Only ${onHand} on hand. You already have ${current} in your cart.`,
+      onHand,
+    };
+  }
+  cart[productId] = Math.max(1, requested);
   writeCart(cart);
-  return cart;
+  return { ok: true, onHand };
 }
 
 function setCartQuantity(productId, quantity) {
   const cart = readCart();
   const qty = Number(quantity);
+  const onHand = getOnHand(productId);
+
   if (!Number.isFinite(qty) || qty <= 0) {
     delete cart[productId];
-  } else {
-    cart[productId] = Math.floor(qty);
+    writeCart(cart);
+    return { ok: true, onHand };
   }
+
+  const next = Math.floor(qty);
+  if (next > onHand) {
+    cart[productId] = onHand;
+    writeCart(cart);
+    return {
+      ok: false,
+      error: `Only ${onHand} on hand for this product. Quantity was limited to ${onHand}.`,
+      onHand,
+      quantity: onHand,
+    };
+  }
+
+  cart[productId] = next;
   writeCart(cart);
-  return cart;
+  return { ok: true, onHand, quantity: next };
 }
 
 function clearCart() {
@@ -55,15 +86,22 @@ function getCartLines() {
       const product = getProductById(id);
       if (!product) return null;
       const qty = Number(quantity);
+      const onHand = getOnHand(id);
       return {
         id: product.id,
         name: product.name,
         price: product.price,
         quantity: qty,
+        onHand,
+        exceedsStock: qty > onHand,
         lineTotal: product.price * qty,
       };
     })
     .filter(Boolean);
+}
+
+function cartHasStockErrors() {
+  return getCartLines().some((line) => line.exceedsStock);
 }
 
 function getCartTotal() {

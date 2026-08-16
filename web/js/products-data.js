@@ -4,6 +4,7 @@ const PRODUCTS = [
     id: "HL-101",
     name: "Ceramic Pour-Over Mug",
     price: 18.0,
+    onHand: 8,
     shortDescription: "Matte stoneware mug sized for a slow morning pour.",
     longDescription:
       "Hand-finished stoneware with a wide mouth and steady base. Holds 12 oz, microwave-safe, and built for daily coffee or tea.",
@@ -14,6 +15,7 @@ const PRODUCTS = [
     id: "HL-102",
     name: "Field Notebook",
     price: 12.5,
+    onHand: 9,
     shortDescription: "Pocket notebook with numbered pages and a cloth cover.",
     longDescription:
       "A5 softcover notebook with 120 dotted pages, a lay-flat stitch binding, and an elastic band for closing.",
@@ -24,6 +26,7 @@ const PRODUCTS = [
     id: "HL-103",
     name: "Daylight Desk Lamp",
     price: 42.0,
+    onHand: 10,
     shortDescription: "Adjustable LED lamp with warm and cool modes.",
     longDescription:
       "Compact aluminum desk lamp with three brightness levels and warm/cool color modes for long work sessions.",
@@ -34,6 +37,7 @@ const PRODUCTS = [
     id: "HL-104",
     name: "Canvas Weekender Tote",
     price: 36.75,
+    onHand: 11,
     shortDescription: "Heavy canvas tote with interior pocket and long straps.",
     longDescription:
       "12 oz cotton canvas with reinforced stitching, an interior zip pocket, and straps long enough for shoulder carry.",
@@ -44,6 +48,7 @@ const PRODUCTS = [
     id: "HL-105",
     name: "Wireless Earbuds",
     price: 59.99,
+    onHand: 12,
     shortDescription: "Compact earbuds with a charging case for commuting.",
     longDescription:
       "Lightweight earbuds with touch controls, a magnetic charging case, and clear mics for calls on the go.",
@@ -54,6 +59,7 @@ const PRODUCTS = [
     id: "HL-106",
     name: "USB-C Multiport Hub",
     price: 34.95,
+    onHand: 13,
     shortDescription: "Four-port hub for laptop docks and travel kits.",
     longDescription:
       "Adds HDMI, USB-A, USB-C data, and SD card slots through one USB-C connection in an aluminum shell.",
@@ -64,6 +70,7 @@ const PRODUCTS = [
     id: "HL-107",
     name: "Linen Tea Towel Set",
     price: 22.0,
+    onHand: 14,
     shortDescription: "Set of two washed linen towels for the kitchen.",
     longDescription:
       "Soft pre-washed linen towels that dry quickly and hang neatly from a stitched loop.",
@@ -74,6 +81,7 @@ const PRODUCTS = [
     id: "HL-108",
     name: "Beeswax Candle",
     price: 16.5,
+    onHand: 3,
     shortDescription: "Slow-burn beeswax candle in a frosted glass jar.",
     longDescription:
       "Naturally scented beeswax with a cotton wick and about 35 hours of steady burn time.",
@@ -84,6 +92,7 @@ const PRODUCTS = [
     id: "HL-109",
     name: "Oak Cutting Board",
     price: 48.0,
+    onHand: 4,
     shortDescription: "Thick oak board with juice groove and oil finish.",
     longDescription:
       "End-grain oak board sealed with food-safe oil, sized for daily prep and serving cheese.",
@@ -94,6 +103,7 @@ const PRODUCTS = [
     id: "HL-110",
     name: "Stainless Water Bottle",
     price: 28.0,
+    onHand: 5,
     shortDescription: "Insulated 20 oz bottle that keeps drinks cold or hot.",
     longDescription:
       "Double-wall stainless steel bottle with a leak-resistant lid and powder-coated exterior.",
@@ -104,6 +114,7 @@ const PRODUCTS = [
     id: "HL-111",
     name: "Wool Beanie",
     price: 24.0,
+    onHand: 6,
     shortDescription: "Merino blend beanie for cool mornings.",
     longDescription:
       "Soft merino-acrylic blend that breathes well and keeps its shape after washing.",
@@ -114,6 +125,7 @@ const PRODUCTS = [
     id: "HL-112",
     name: "Leather Card Case",
     price: 32.0,
+    onHand: 7,
     shortDescription: "Slim vegetable-tanned leather case for cards and cash.",
     longDescription:
       "Two card slots and a center pocket for folded notes, stitched with waxed thread.",
@@ -124,6 +136,7 @@ const PRODUCTS = [
     id: "HL-113",
     name: "Ceramic Plant Pot",
     price: 19.5,
+    onHand: 8,
     shortDescription: "Speckled pot with drainage hole and saucer.",
     longDescription:
       "Mid-size ceramic planter with a matching saucer for herbs and small houseplants.",
@@ -134,6 +147,7 @@ const PRODUCTS = [
     id: "HL-114",
     name: "Bamboo Desk Organizer",
     price: 27.0,
+    onHand: 9,
     shortDescription: "Three-compartment tray for pens and small tools.",
     longDescription:
       "Smooth bamboo organizer that keeps stationery, cables, and sticky notes in one place.",
@@ -144,6 +158,7 @@ const PRODUCTS = [
     id: "HL-115",
     name: "Cotton Throw Blanket",
     price: 54.0,
+    onHand: 10,
     shortDescription: "Lightweight woven throw for sofa or bed.",
     longDescription:
       "Breathable cotton weave with fringed edges, machine washable and easy to drape.",
@@ -154,6 +169,7 @@ const PRODUCTS = [
     id: "HL-116",
     name: "Glass Food Containers",
     price: 29.99,
+    onHand: 11,
     shortDescription: "Set of three glass boxes with locking lids.",
     longDescription:
       "Oven-safe glass containers with snap lids for leftovers, meal prep, and fridge storage.",
@@ -164,6 +180,7 @@ const PRODUCTS = [
     id: "HL-117",
     name: "Mechanical Pencil Set",
     price: 14.0,
+    onHand: 12,
     shortDescription: "Two 0.5 mm pencils with spare leads and erasers.",
     longDescription:
       "Metal-barrel pencils with a soft grip and a tin of refill leads for sketching and notes.",
@@ -174,6 +191,7 @@ const PRODUCTS = [
     id: "HL-118",
     name: "Travel Packing Cubes",
     price: 31.0,
+    onHand: 13,
     shortDescription: "Set of three mesh cubes for organized packing.",
     longDescription:
       "Lightweight cubes with two-way zippers to separate clothes and keep luggage tidy.",
@@ -184,6 +202,7 @@ const PRODUCTS = [
     id: "HL-119",
     name: "Cast Iron Skillet",
     price: 45.0,
+    onHand: 14,
     shortDescription: "Pre-seasoned 10-inch skillet for stovetop and oven.",
     longDescription:
       "Even-heating cast iron with a helper handle, ready for searing, baking, and camping trips.",
@@ -194,6 +213,7 @@ const PRODUCTS = [
     id: "HL-120",
     name: "Bluetooth Speaker",
     price: 64.0,
+    onHand: 3,
     shortDescription: "Portable speaker with 12-hour battery life.",
     longDescription:
       "IPX5 splash-resistant speaker with rich bass and a USB-C charge port for travel.",
@@ -204,6 +224,7 @@ const PRODUCTS = [
     id: "HL-121",
     name: "Silk Sleep Mask",
     price: 18.5,
+    onHand: 4,
     shortDescription: "Soft mulberry silk mask with adjustable strap.",
     longDescription:
       "Gentle on skin and hair, with contoured padding that blocks light without pressure.",
@@ -214,6 +235,7 @@ const PRODUCTS = [
     id: "HL-122",
     name: "Reusable Produce Bags",
     price: 15.0,
+    onHand: 5,
     shortDescription: "Set of five mesh bags for market shopping.",
     longDescription:
       "Washable mesh bags with drawstrings, sized for fruit, vegetables, and bulk goods.",
@@ -224,6 +246,7 @@ const PRODUCTS = [
     id: "HL-123",
     name: "Desk Calendar Stand",
     price: 21.0,
+    onHand: 6,
     shortDescription: "Wood stand with tear-off monthly sheets.",
     longDescription:
       "Solid wood base and a full year of dated sheets for planning at a glance.",
@@ -234,6 +257,7 @@ const PRODUCTS = [
     id: "HL-124",
     name: "Insulated Lunch Tote",
     price: 26.5,
+    onHand: 7,
     shortDescription: "Padded tote that keeps lunch cool for hours.",
     longDescription:
       "Water-resistant exterior, foil lining, and a front pocket for utensils and napkins.",
@@ -244,6 +268,7 @@ const PRODUCTS = [
     id: "HL-125",
     name: "Yoga Mat",
     price: 38.0,
+    onHand: 8,
     shortDescription: "Non-slip 5 mm mat with carrying strap.",
     longDescription:
       "Closed-cell foam mat that cushions joints and rolls compact for studio or home use.",
@@ -254,6 +279,7 @@ const PRODUCTS = [
     id: "HL-126",
     name: "Coffee Pour-Over Set",
     price: 41.0,
+    onHand: 9,
     shortDescription: "Glass dripper, server, and paper filters.",
     longDescription:
       "Heat-resistant glass pour-over kit for a clean cup without a machine.",
@@ -264,6 +290,7 @@ const PRODUCTS = [
     id: "HL-127",
     name: "Wall Clock",
     price: 33.0,
+    onHand: 10,
     shortDescription: "Silent sweep clock with a matte metal frame.",
     longDescription:
       "Battery-powered wall clock with a quiet movement and easy-to-read numerals.",
@@ -274,6 +301,7 @@ const PRODUCTS = [
     id: "HL-128",
     name: "Gardening Glove Pair",
     price: 17.0,
+    onHand: 11,
     shortDescription: "Breathable gloves with grip palms.",
     longDescription:
       "Flexible gloves with reinforced fingertips for planting, weeding, and potting.",
@@ -284,6 +312,7 @@ const PRODUCTS = [
     id: "HL-129",
     name: "Phone Tripod",
     price: 23.5,
+    onHand: 12,
     shortDescription: "Foldable mini tripod with phone clamp.",
     longDescription:
       "Lightweight aluminum legs and a ball head for desk videos and travel photos.",
@@ -294,6 +323,7 @@ const PRODUCTS = [
     id: "HL-130",
     name: "Scented Diffuser",
     price: 29.0,
+    onHand: 13,
     shortDescription: "Reed diffuser with a soft cedar scent.",
     longDescription:
       "Glass bottle, natural reeds, and a long-lasting oil blend for living rooms and desks.",
@@ -304,6 +334,7 @@ const PRODUCTS = [
     id: "HL-131",
     name: "Cable Organizer Kit",
     price: 12.99,
+    onHand: 14,
     shortDescription: "Velcro ties and clips for desk cables.",
     longDescription:
       "Reusable ties and adhesive clips to keep chargers and peripherals from tangling.",
@@ -314,6 +345,7 @@ const PRODUCTS = [
     id: "HL-132",
     name: "Enamel Mug",
     price: 14.5,
+    onHand: 3,
     shortDescription: "Camp-style mug for coffee outdoors or at home.",
     longDescription:
       "Speckle enamel on steel with a welded handle that stands up to campfires and dishwashers.",
@@ -324,6 +356,7 @@ const PRODUCTS = [
     id: "HL-133",
     name: "Folding Umbrella",
     price: 25.0,
+    onHand: 4,
     shortDescription: "Wind-resistant compact umbrella with auto open.",
     longDescription:
       "Fiberglass ribs and a water-repellent canopy that packs into a slim sleeve.",
@@ -334,6 +367,7 @@ const PRODUCTS = [
     id: "HL-134",
     name: "Kitchen Scale",
     price: 27.5,
+    onHand: 5,
     shortDescription: "Digital scale with gram and ounce modes.",
     longDescription:
       "Tare function, backlit display, and a slim profile that stores in a drawer.",
@@ -344,6 +378,7 @@ const PRODUCTS = [
     id: "HL-135",
     name: "Photo Frame Set",
     price: 30.0,
+    onHand: 6,
     shortDescription: "Set of three wood frames for 4x6 photos.",
     longDescription:
       "Natural wood frames with standing easels and wall hooks included.",
@@ -354,6 +389,7 @@ const PRODUCTS = [
     id: "HL-136",
     name: "Laptop Sleeve",
     price: 35.0,
+    onHand: 7,
     shortDescription: "Padded 14-inch sleeve with zipper pocket.",
     longDescription:
       "Soft-lined sleeve that fits most 13–14 inch laptops with room for a charger.",
@@ -364,6 +400,7 @@ const PRODUCTS = [
     id: "HL-137",
     name: "Herb Scissors",
     price: 11.0,
+    onHand: 8,
     shortDescription: "Multi-blade scissors for chopping herbs fast.",
     longDescription:
       "Five stainless blades and a cleaning comb for basil, cilantro, and green onions.",
@@ -374,6 +411,7 @@ const PRODUCTS = [
     id: "HL-138",
     name: "Reading Light Clip",
     price: 19.0,
+    onHand: 9,
     shortDescription: "USB-rechargeable clip light for books and beds.",
     longDescription:
       "Warm LED clip light with three brightness levels and a flexible neck.",
@@ -384,6 +422,7 @@ const PRODUCTS = [
     id: "HL-139",
     name: "Doormat",
     price: 28.5,
+    onHand: 10,
     shortDescription: "Coir doormat with a non-slip rubber back.",
     longDescription:
       "Tough natural coir fibers that scrape mud and trap dirt at the door.",
@@ -394,6 +433,7 @@ const PRODUCTS = [
     id: "HL-140",
     name: "Travel Journal",
     price: 20.0,
+    onHand: 11,
     shortDescription: "Hardcover journal with blank and lined pages.",
     longDescription:
       "Ribbon marker, elastic closure, and mixed pages for sketches and trip notes.",

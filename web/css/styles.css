@@ -463,3 +463,25 @@ a {
   color: var(--brand);
 }
 
+.message.error {
+  background: rgba(154, 52, 18, 0.08);
+  color: #9a3412;
+  border: 1px solid rgba(154, 52, 18, 0.25);
+}
+
+.stock-note {
+  margin: 0.35rem 0 0;
+  color: #4d5c56;
+  font-size: 0.8rem;
+}
+
+.stock-inline {
+  margin-top: 0.45rem;
+  font-size: 0.85rem;
+}
+
+.stock-error-row {
+  background: rgba(154, 52, 18, 0.04);
+}
+
+

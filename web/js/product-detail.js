@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.title = `${product.name} — Harborline`;
+  const onHand = getOnHand(product.id);
 
   root.innerHTML = `
     <article class="detail">
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="price">${formatMoney(product.price)}</p>
         <div class="meta">
           <span>Product ID: <strong>${product.id}</strong></span>
+          <span>On hand: <strong>${onHand}</strong></span>
         </div>
         <p class="detail-copy">${product.shortDescription}</p>
         <p class="detail-copy detail-long">${product.longDescription}</p>
@@ -38,13 +40,22 @@ document.addEventListener("DOMContentLoaded", () => {
           <a class="btn btn-secondary" href="products.html">See More Products</a>
         </div>
         <p id="cartMessage" class="message" hidden>Added to your shopping cart.</p>
+        <p id="stockMessage" class="message error" hidden></p>
       </div>
     </article>
   `;
 
   const message = document.getElementById("cartMessage");
+  const stockMessage = document.getElementById("stockMessage");
   document.getElementById("addToCartBtn").addEventListener("click", () => {
-    addToCart(product.id, 1);
+    const result = addToCart(product.id, 1);
+    if (result && result.ok === false) {
+      message.hidden = true;
+      stockMessage.textContent = result.error;
+      stockMessage.hidden = false;
+      return;
+    }
+    stockMessage.hidden = true;
     message.hidden = false;
   });
 });

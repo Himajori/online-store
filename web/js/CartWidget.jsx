@@ -7,6 +7,7 @@ function CartWidget() {
   const [lines, setLines] = useState([]);
   const [count, setCount] = useState(0);
   const [total, setTotal] = useState(0);
+  const [error, setError] = useState("");
 
   function refresh() {
     setLines(typeof getCartLines === "function" ? getCartLines() : []);
@@ -28,8 +29,12 @@ function CartWidget() {
   }, []);
 
   function changeQty(id, value) {
-    if (typeof setCartQuantity === "function") {
-      setCartQuantity(id, value);
+    if (typeof setCartQuantity !== "function") return;
+    const result = setCartQuantity(id, value);
+    if (result && result.ok === false) {
+      setError(result.error);
+    } else {
+      setError("");
     }
   }
 
@@ -53,6 +58,8 @@ function CartWidget() {
             </button>
           </div>
 
+          {error ? <p className="message error">{error}</p> : null}
+
           {lines.length === 0 ? (
             <p className="react-cart-empty">No items yet.</p>
           ) : (
@@ -62,13 +69,19 @@ function CartWidget() {
                   <div>
                     <p className="react-cart-name">{line.name}</p>
                     <p className="react-cart-meta">
-                      {formatMoney(line.price)} · {line.id}
+                      {formatMoney(line.price)} · On hand {line.onHand}
                     </p>
+                    {line.exceedsStock ? (
+                      <p className="message error stock-inline">
+                        Exceeds on-hand stock ({line.onHand}).
+                      </p>
+                    ) : null}
                   </div>
                   <input
                     className="qty-input"
                     type="number"
                     min="0"
+                    max={line.onHand}
                     value={line.quantity}
                     aria-label={`Quantity for ${line.name}`}
                     onChange={(e) => changeQty(line.id, e.target.value)}
