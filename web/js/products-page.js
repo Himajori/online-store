@@ -4,37 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   grid.innerHTML = PRODUCTS.map(
     (product) => `
-      <article class="product-card" data-product-id="${product.id}">
+      <article class="product-card">
         <img src="${product.thumbnail}" alt="${product.name}" width="600" height="600" loading="lazy" />
         <div class="product-card-body">
           <h2>${product.name}</h2>
           <p class="price">${formatMoney(product.price)}</p>
           <p>${product.shortDescription}</p>
-          <button type="button" class="btn btn-primary select-btn">Select</button>
-          <div class="product-extra" hidden>
-            <p><strong>ID:</strong> ${product.id}</p>
-            <p>${product.longDescription}</p>
-          </div>
+          <a class="btn btn-primary" href="product.html?id=${encodeURIComponent(product.id)}">Select</a>
         </div>
       </article>
     `
   ).join("");
-
-  grid.querySelectorAll(".select-btn").forEach((button) => {
-    button.addEventListener("click", () => {
-      const card = button.closest(".product-card");
-      const extra = card.querySelector(".product-extra");
-      const open = extra.hasAttribute("hidden");
-      grid.querySelectorAll(".product-extra").forEach((el) => el.setAttribute("hidden", ""));
-      if (open) {
-        extra.removeAttribute("hidden");
-        button.textContent = "Hide details";
-      } else {
-        button.textContent = "Select";
-      }
-      grid.querySelectorAll(".select-btn").forEach((btn) => {
-        if (btn !== button) btn.textContent = "Select";
-      });
-    });
-  });
 });
