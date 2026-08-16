@@ -368,3 +368,98 @@ a {
   font-family: var(--font-display);
   font-size: 1.15rem;
 }
+
+.product-card img,
+.detail-media img {
+  transition: transform 0.35s ease;
+}
+
+.product-card:hover img,
+.detail-media:hover img {
+  transform: scale(1.04);
+}
+
+.react-cart {
+  position: relative;
+}
+
+.react-cart-toggle {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.react-cart-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.55rem);
+  width: min(320px, 86vw);
+  background: #f4faf6;
+  border: 1px solid #c5d4cc;
+  border-radius: 0.85rem;
+  box-shadow: 0 16px 40px rgba(15, 61, 50, 0.15);
+  padding: 0.9rem;
+  z-index: 40;
+}
+
+.react-cart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.react-cart-close {
+  border: 0;
+  background: transparent;
+  color: #4d5c56;
+  cursor: pointer;
+  font: inherit;
+}
+
+.react-cart-empty {
+  margin: 0.5rem 0 1rem;
+  color: #4d5c56;
+}
+
+.react-cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 240px;
+  overflow: auto;
+}
+
+.react-cart-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #c5d4cc;
+}
+
+.react-cart-name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.react-cart-meta {
+  margin: 0.2rem 0 0;
+  color: #4d5c56;
+  font-size: 0.8rem;
+}
+
+.react-cart-foot {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.react-cart-total {
+  margin: 0;
+  font-family: var(--font-display);
+  color: var(--brand);
+}
+
