@@ -8,7 +8,7 @@ const PRODUCTS = [
     longDescription:
       "Hand-finished stoneware with a wide mouth and steady base. Holds 12 oz, microwave-safe, and built for daily coffee or tea.",
     thumbnail:
-      "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-102",
@@ -18,7 +18,7 @@ const PRODUCTS = [
     longDescription:
       "A5 softcover notebook with 120 dotted pages, a lay-flat stitch binding, and an elastic band for closing.",
     thumbnail:
-      "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-103",
@@ -28,7 +28,7 @@ const PRODUCTS = [
     longDescription:
       "Compact aluminum desk lamp with three brightness levels and warm/cool color modes for long work sessions.",
     thumbnail:
-      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-104",
@@ -38,7 +38,7 @@ const PRODUCTS = [
     longDescription:
       "12 oz cotton canvas with reinforced stitching, an interior zip pocket, and straps long enough for shoulder carry.",
     thumbnail:
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-105",
@@ -48,7 +48,7 @@ const PRODUCTS = [
     longDescription:
       "Lightweight earbuds with touch controls, a magnetic charging case, and clear mics for calls on the go.",
     thumbnail:
-      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-106",
@@ -58,7 +58,7 @@ const PRODUCTS = [
     longDescription:
       "Adds HDMI, USB-A, USB-C data, and SD card slots through one USB-C connection in an aluminum shell.",
     thumbnail:
-      "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1625948515291-69613efd103f?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-107",
@@ -68,7 +68,7 @@ const PRODUCTS = [
     longDescription:
       "Soft pre-washed linen towels that dry quickly and hang neatly from a stitched loop.",
     thumbnail:
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-108",
@@ -78,7 +78,7 @@ const PRODUCTS = [
     longDescription:
       "Naturally scented beeswax with a cotton wick and about 35 hours of steady burn time.",
     thumbnail:
-      "https://images.unsplash.com/photo-1603006905004-abe642ffe562?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1603006905004-abe642ffe562?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-109",
@@ -88,7 +88,7 @@ const PRODUCTS = [
     longDescription:
       "End-grain oak board sealed with food-safe oil, sized for daily prep and serving cheese.",
     thumbnail:
-      "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-110",
@@ -98,7 +98,7 @@ const PRODUCTS = [
     longDescription:
       "Double-wall stainless steel bottle with a leak-resistant lid and powder-coated exterior.",
     thumbnail:
-      "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-111",
@@ -108,7 +108,7 @@ const PRODUCTS = [
     longDescription:
       "Soft merino-acrylic blend that breathes well and keeps its shape after washing.",
     thumbnail:
-      "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-112",
@@ -118,7 +118,7 @@ const PRODUCTS = [
     longDescription:
       "Two card slots and a center pocket for folded notes, stitched with waxed thread.",
     thumbnail:
-      "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-113",
@@ -128,7 +128,7 @@ const PRODUCTS = [
     longDescription:
       "Mid-size ceramic planter with a matching saucer for herbs and small houseplants.",
     thumbnail:
-      "https://images.unsplash.com/photo-1485955900006-10f4d32477c2?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1485955900006-10f4d32477c2?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-114",
@@ -138,7 +138,7 @@ const PRODUCTS = [
     longDescription:
       "Smooth bamboo organizer that keeps stationery, cables, and sticky notes in one place.",
     thumbnail:
-      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-115",
@@ -148,7 +148,7 @@ const PRODUCTS = [
     longDescription:
       "Breathable cotton weave with fringed edges, machine washable and easy to drape.",
     thumbnail:
-      "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-116",
@@ -158,7 +158,7 @@ const PRODUCTS = [
     longDescription:
       "Oven-safe glass containers with snap lids for leftovers, meal prep, and fridge storage.",
     thumbnail:
-      "https://images.unsplash.com/photo-1584551246679-0daf3d27580f?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1604719312566-891d68d2c9c9?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-117",
@@ -168,7 +168,7 @@ const PRODUCTS = [
     longDescription:
       "Metal-barrel pencils with a soft grip and a tin of refill leads for sketching and notes.",
     thumbnail:
-      "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-118",
@@ -178,7 +178,7 @@ const PRODUCTS = [
     longDescription:
       "Lightweight cubes with two-way zippers to separate clothes and keep luggage tidy.",
     thumbnail:
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-119",
@@ -188,7 +188,7 @@ const PRODUCTS = [
     longDescription:
       "Even-heating cast iron with a helper handle, ready for searing, baking, and camping trips.",
     thumbnail:
-      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-120",
@@ -198,7 +198,7 @@ const PRODUCTS = [
     longDescription:
       "IPX5 splash-resistant speaker with rich bass and a USB-C charge port for travel.",
     thumbnail:
-      "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-121",
@@ -208,7 +208,7 @@ const PRODUCTS = [
     longDescription:
       "Gentle on skin and hair, with contoured padding that blocks light without pressure.",
     thumbnail:
-      "https://images.unsplash.com/photo-1631730486572-226b1e605ead?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1541781779527-4eb94874012a?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-122",
@@ -218,7 +218,7 @@ const PRODUCTS = [
     longDescription:
       "Washable mesh bags with drawstrings, sized for fruit, vegetables, and bulk goods.",
     thumbnail:
-      "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-123",
@@ -228,7 +228,7 @@ const PRODUCTS = [
     longDescription:
       "Solid wood base and a full year of dated sheets for planning at a glance.",
     thumbnail:
-      "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-124",
@@ -238,7 +238,7 @@ const PRODUCTS = [
     longDescription:
       "Water-resistant exterior, foil lining, and a front pocket for utensils and napkins.",
     thumbnail:
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1593095948071-474c5ee0d86b?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-125",
@@ -248,7 +248,7 @@ const PRODUCTS = [
     longDescription:
       "Closed-cell foam mat that cushions joints and rolls compact for studio or home use.",
     thumbnail:
-      "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-126",
@@ -258,7 +258,7 @@ const PRODUCTS = [
     longDescription:
       "Heat-resistant glass pour-over kit for a clean cup without a machine.",
     thumbnail:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-127",
@@ -268,7 +268,7 @@ const PRODUCTS = [
     longDescription:
       "Battery-powered wall clock with a quiet movement and easy-to-read numerals.",
     thumbnail:
-      "https://images.unsplash.com/photo-1563861826100-9cb5a0d0c2c0?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1563861826100-9cb868fdbe70?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-128",
@@ -278,7 +278,7 @@ const PRODUCTS = [
     longDescription:
       "Flexible gloves with reinforced fingertips for planting, weeding, and potting.",
     thumbnail:
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-129",
@@ -288,7 +288,7 @@ const PRODUCTS = [
     longDescription:
       "Lightweight aluminum legs and a ball head for desk videos and travel photos.",
     thumbnail:
-      "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-130",
@@ -298,7 +298,7 @@ const PRODUCTS = [
     longDescription:
       "Glass bottle, natural reeds, and a long-lasting oil blend for living rooms and desks.",
     thumbnail:
-      "https://images.unsplash.com/photo-1602921830852-6e771678b3f6?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1602921830852-6e771678b3f6?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-131",
@@ -308,7 +308,7 @@ const PRODUCTS = [
     longDescription:
       "Reusable ties and adhesive clips to keep chargers and peripherals from tangling.",
     thumbnail:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-132",
@@ -318,7 +318,7 @@ const PRODUCTS = [
     longDescription:
       "Speckle enamel on steel with a welded handle that stands up to campfires and dishwashers.",
     thumbnail:
-      "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-133",
@@ -328,7 +328,7 @@ const PRODUCTS = [
     longDescription:
       "Fiberglass ribs and a water-repellent canopy that packs into a slim sleeve.",
     thumbnail:
-      "https://images.unsplash.com/photo-1524634126441-9374aa45b3d4?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1524634126441-9374aa45b3d4?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-134",
@@ -338,7 +338,7 @@ const PRODUCTS = [
     longDescription:
       "Tare function, backlit display, and a slim profile that stores in a drawer.",
     thumbnail:
-      "https://images.unsplash.com/photo-1556911220-bff31c28d293?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1556911220-bff31c28d293?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-135",
@@ -348,7 +348,7 @@ const PRODUCTS = [
     longDescription:
       "Natural wood frames with standing easels and wall hooks included.",
     thumbnail:
-      "https://images.unsplash.com/photo-1513519245088-0e12902e35a6?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1513519245088-0e12902e35a6?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-136",
@@ -358,7 +358,7 @@ const PRODUCTS = [
     longDescription:
       "Soft-lined sleeve that fits most 13–14 inch laptops with room for a charger.",
     thumbnail:
-      "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-137",
@@ -368,7 +368,7 @@ const PRODUCTS = [
     longDescription:
       "Five stainless blades and a cleaning comb for basil, cilantro, and green onions.",
     thumbnail:
-      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-138",
@@ -378,7 +378,7 @@ const PRODUCTS = [
     longDescription:
       "Warm LED clip light with three brightness levels and a flexible neck.",
     thumbnail:
-      "https://images.unsplash.com/photo-1532012197267-da84d127e954?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1532012197267-da84d127e954?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-139",
@@ -388,7 +388,7 @@ const PRODUCTS = [
     longDescription:
       "Tough natural coir fibers that scrape mud and trap dirt at the door.",
     thumbnail:
-      "https://images.unsplash.com/photo-1558618047-f4b511aaccde?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1556912173-46c336b7dd52?auto=format&fit=crop&w=800&h=800&q=80",
   },
   {
     id: "HL-140",
@@ -398,7 +398,7 @@ const PRODUCTS = [
     longDescription:
       "Ribbon marker, elastic closure, and mixed pages for sketches and trip notes.",
     thumbnail:
-      "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&h=800&q=80",
   },
 ];
 
