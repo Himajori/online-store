@@ -14,6 +14,7 @@ function readCart() {
 function writeCart(cart) {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
   updateCartBadge();
+  window.dispatchEvent(new CustomEvent("cart-updated"));
 }
 
 function getCartCount() {
@@ -78,6 +79,9 @@ function createConfirmationNumber() {
 function updateCartBadge() {
   const count = getCartCount();
   document.querySelectorAll("[data-cart-count]").forEach((el) => {
+    el.textContent = String(count);
+  });
+  document.querySelectorAll(".react-cart-toggle span").forEach((el) => {
     el.textContent = String(count);
   });
 }

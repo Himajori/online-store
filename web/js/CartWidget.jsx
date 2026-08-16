@@ -19,9 +19,11 @@ function CartWidget() {
     const onUpdate = () => refresh();
     window.addEventListener("cart-updated", onUpdate);
     window.addEventListener("storage", onUpdate);
+    document.addEventListener("visibilitychange", onUpdate);
     return () => {
       window.removeEventListener("cart-updated", onUpdate);
       window.removeEventListener("storage", onUpdate);
+      document.removeEventListener("visibilitychange", onUpdate);
     };
   }, []);
 
