@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart — Harborline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">Harborline</a>
+    <div class="top-actions">
+      <a class="cart-link" href="cart.html">Shopping Cart <span data-cart-count>0</span></a>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-head">
+      <h1>Shopping Cart</h1>
+      <p>Adjust quantities, place your order, or cancel and start over.</p>
+    </div>
+
+    <div id="cartContent"></div>
+
+    <div id="orderConfirm" class="confirm-box" hidden>
+      <p>Order placed. Your confirmation number is:</p>
+      <p><strong id="confirmationNumber"></strong></p>
+    </div>
+  </main>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/cart-page.js"></script>
+</body>
+</html>
