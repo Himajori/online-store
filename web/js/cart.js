@@ -116,8 +116,17 @@ function getShippingCharge(subtotal = getCartTotal()) {
   return 7.5;
 }
 
+/** Sales tax on merchandise subtotal (not shipping) */
+const SALES_TAX_RATE = 0.08;
+
+function getSalesTax(subtotal = getCartTotal()) {
+  const amount = Number(subtotal) || 0;
+  if (amount <= 0) return 0;
+  return Math.round(amount * SALES_TAX_RATE * 100) / 100;
+}
+
 function getOrderTotal(subtotal = getCartTotal()) {
-  return Number(subtotal) + getShippingCharge(subtotal);
+  return Number(subtotal) + getShippingCharge(subtotal) + getSalesTax(subtotal);
 }
 
 function createConfirmationNumber() {

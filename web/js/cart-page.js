@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const subtotal = getCartTotal();
     const shipping = getShippingCharge(subtotal);
+    const tax = getSalesTax(subtotal);
     const orderTotal = getOrderTotal(subtotal);
 
     const rows = lines
@@ -177,8 +178,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="totals-lines">
           <p>Subtotal: <strong>${formatMoney(subtotal)}</strong></p>
           <p>Shipping: <strong>${shipping === 0 ? "Free" : formatMoney(shipping)}</strong></p>
+          <p>Sales tax (8%): <strong>${formatMoney(tax)}</strong></p>
           <p class="cart-total">Order total: <span id="cartTotalAmount">${formatMoney(orderTotal)}</span></p>
-          <p class="shipping-hint">Shipping is $7.50, or free on merchandise of $75+.</p>
+          <p class="shipping-hint">Shipping is $7.50, or free on merchandise of $75+. Sales tax is 8% of the merchandise subtotal.</p>
         </div>
         <div class="actions">
           <button type="button" class="btn btn-primary" id="placeOrderBtn">Place Order</button>
@@ -236,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <pre>${formatAddress("bill")}</pre>
           <p><strong>Ship to</strong></p>
           <pre>${formatAddress("ship")}</pre>
-          <p>Subtotal ${formatMoney(subtotal)} · Shipping ${shipping === 0 ? "Free" : formatMoney(shipping)} · Total ${formatMoney(orderTotal)}</p>
+          <p>Subtotal ${formatMoney(subtotal)} · Shipping ${shipping === 0 ? "Free" : formatMoney(shipping)} · Tax ${formatMoney(tax)} · Total ${formatMoney(orderTotal)}</p>
         `;
       }
       confirmBox.hidden = false;
