@@ -125,8 +125,27 @@ function getSalesTax(subtotal = getCartTotal()) {
   return Math.round(amount * SALES_TAX_RATE * 100) / 100;
 }
 
-function getOrderTotal(subtotal = getCartTotal()) {
-  return Number(subtotal) + getShippingCharge(subtotal) + getSalesTax(subtotal);
+function getDiscountAmount(subtotal, discountValue = 0) {
+  const amount = Number(subtotal) || 0;
+  const discount = Math.max(0, Number(discountValue) || 0);
+  return Math.min(amount, Math.round(discount * 100) / 100);
+}
+
+function getCreditAmount(creditValue = 0) {
+  return Math.max(0, Math.round((Number(creditValue) || 0) * 100) / 100);
+}
+
+function getOrderTotal(
+  subtotal = getCartTotal(),
+  discountValue = 0,
+  creditValue = 0
+) {
+  const shipping = getShippingCharge(subtotal);
+  const tax = getSalesTax(subtotal);
+  const discount = getDiscountAmount(subtotal, discountValue);
+  const credit = getCreditAmount(creditValue);
+  const total = Number(subtotal) - discount + shipping + tax - credit;
+  return Math.max(0, Math.round(total * 100) / 100);
 }
 
 function createConfirmationNumber() {

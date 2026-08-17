@@ -519,13 +519,25 @@ a {
   font-size: 0.9rem;
 }
 
-.address-card input[type="text"] {
+.address-card input[type="text"],
+.address-card input[type="number"],
+.address-card select {
   border: 1px solid #c5d4cc;
   border-radius: 0.55rem;
   padding: 0.5rem 0.65rem;
   font: inherit;
   color: var(--ink);
   background: #fff;
+}
+
+.payment-card {
+  grid-column: 1 / -1;
+}
+
+.bill-items {
+  margin: 0.5rem 0 0.75rem;
+  padding-left: 1.1rem;
+  color: #145a49;
 }
 
 .address-row {
