@@ -484,4 +484,86 @@ a {
   background: rgba(154, 52, 18, 0.04);
 }
 
+.address-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1.25rem 0;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 800px) {
+  .address-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.address-card {
+  margin: 0;
+  border: 1px solid #c5d4cc;
+  border-radius: 1rem;
+  background: var(--panel);
+  padding: 1rem 1.1rem 1.15rem;
+}
+
+.address-card legend {
+  font-family: var(--font-display);
+  color: var(--brand);
+  padding: 0 0.35rem;
+}
+
+.address-card label {
+  display: grid;
+  gap: 0.3rem;
+  margin-top: 0.65rem;
+  color: #4d5c56;
+  font-size: 0.9rem;
+}
+
+.address-card input[type="text"] {
+  border: 1px solid #c5d4cc;
+  border-radius: 0.55rem;
+  padding: 0.5rem 0.65rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+}
+
+.address-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.checkbox-line {
+  display: flex !important;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.25rem !important;
+}
+
+.totals-block {
+  align-items: flex-start;
+}
+
+.totals-lines p {
+  margin: 0.25rem 0;
+  color: #4d5c56;
+}
+
+.shipping-hint {
+  font-size: 0.85rem;
+}
+
+.confirm-details {
+  margin-top: 0.85rem;
+  color: #145a49;
+}
+
+.confirm-details pre {
+  margin: 0.25rem 0 0.75rem;
+  white-space: pre-wrap;
+  font: inherit;
+}
+
+
 

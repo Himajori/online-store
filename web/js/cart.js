@@ -108,6 +108,18 @@ function getCartTotal() {
   return getCartLines().reduce((sum, line) => sum + line.lineTotal, 0);
 }
 
+/** Flat shipping: $7.50, free when merchandise subtotal is $75+ */
+function getShippingCharge(subtotal = getCartTotal()) {
+  const amount = Number(subtotal) || 0;
+  if (amount <= 0) return 0;
+  if (amount >= 75) return 0;
+  return 7.5;
+}
+
+function getOrderTotal(subtotal = getCartTotal()) {
+  return Number(subtotal) + getShippingCharge(subtotal);
+}
+
 function createConfirmationNumber() {
   const stamp = Date.now().toString(36).toUpperCase();
   const rand = Math.floor(Math.random() * 900 + 100);

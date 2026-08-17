@@ -2,9 +2,74 @@ document.addEventListener("DOMContentLoaded", () => {
   const content = document.getElementById("cartContent");
   const confirmBox = document.getElementById("orderConfirm");
   const confirmationNumber = document.getElementById("confirmationNumber");
+  const confirmDetails = document.getElementById("confirmDetails");
   if (!content) return;
 
   let stockMessage = "";
+  let addressMessage = "";
+  const addressState = {
+    billName: "",
+    billStreet: "",
+    billCity: "",
+    billState: "",
+    billZip: "",
+    shipName: "",
+    shipStreet: "",
+    shipCity: "",
+    shipState: "",
+    shipZip: "",
+    sameAsBilling: true,
+  };
+
+  function readAddressFields() {
+    const form = document.getElementById("checkoutAddresses");
+    if (!form) return;
+    addressState.billName = form.billName.value.trim();
+    addressState.billStreet = form.billStreet.value.trim();
+    addressState.billCity = form.billCity.value.trim();
+    addressState.billState = form.billState.value.trim();
+    addressState.billZip = form.billZip.value.trim();
+    addressState.sameAsBilling = form.sameAsBilling.checked;
+    if (addressState.sameAsBilling) {
+      addressState.shipName = addressState.billName;
+      addressState.shipStreet = addressState.billStreet;
+      addressState.shipCity = addressState.billCity;
+      addressState.shipState = addressState.billState;
+      addressState.shipZip = addressState.billZip;
+    } else {
+      addressState.shipName = form.shipName.value.trim();
+      addressState.shipStreet = form.shipStreet.value.trim();
+      addressState.shipCity = form.shipCity.value.trim();
+      addressState.shipState = form.shipState.value.trim();
+      addressState.shipZip = form.shipZip.value.trim();
+    }
+  }
+
+  function addressesComplete() {
+    const billOk =
+      addressState.billName &&
+      addressState.billStreet &&
+      addressState.billCity &&
+      addressState.billState &&
+      addressState.billZip;
+    const shipOk =
+      addressState.shipName &&
+      addressState.shipStreet &&
+      addressState.shipCity &&
+      addressState.shipState &&
+      addressState.shipZip;
+    return Boolean(billOk && shipOk);
+  }
+
+  function formatAddress(prefix) {
+    return [
+      addressState[`${prefix}Name`],
+      addressState[`${prefix}Street`],
+      `${addressState[`${prefix}City`]}, ${addressState[`${prefix}State`]} ${addressState[`${prefix}Zip`]}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+  }
 
   function renderCart() {
     const lines = getCartLines();
@@ -19,8 +84,13 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
       stockMessage = "";
+      addressMessage = "";
       return;
     }
+
+    const subtotal = getCartTotal();
+    const shipping = getShippingCharge(subtotal);
+    const orderTotal = getOrderTotal(subtotal);
 
     const rows = lines
       .map(
@@ -53,6 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
       )
       .join("");
 
+    const shipDisabled = addressState.sameAsBilling ? "disabled" : "";
+
     content.innerHTML = `
       <div class="cart-table-wrap">
         <table class="cart-table">
@@ -71,8 +143,43 @@ document.addEventListener("DOMContentLoaded", () => {
         </table>
       </div>
       <p id="stockErrorBanner" class="message error" ${stockMessage ? "" : "hidden"}>${stockMessage || ""}</p>
-      <div class="cart-summary">
-        <p class="cart-total">Total: <span id="cartTotalAmount">${formatMoney(getCartTotal())}</span></p>
+
+      <form id="checkoutAddresses" class="address-grid" autocomplete="shipping">
+        <fieldset class="address-card">
+          <legend>Bill to</legend>
+          <label>Full name<input name="billName" type="text" value="${addressState.billName}" required /></label>
+          <label>Street<input name="billStreet" type="text" value="${addressState.billStreet}" required /></label>
+          <label>City<input name="billCity" type="text" value="${addressState.billCity}" required /></label>
+          <div class="address-row">
+            <label>State<input name="billState" type="text" value="${addressState.billState}" required /></label>
+            <label>ZIP<input name="billZip" type="text" value="${addressState.billZip}" required /></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="address-card">
+          <legend>Ship to</legend>
+          <label class="checkbox-line">
+            <input name="sameAsBilling" type="checkbox" ${addressState.sameAsBilling ? "checked" : ""} />
+            Same as bill-to address
+          </label>
+          <label>Full name<input name="shipName" type="text" value="${addressState.shipName}" ${shipDisabled} required /></label>
+          <label>Street<input name="shipStreet" type="text" value="${addressState.shipStreet}" ${shipDisabled} required /></label>
+          <label>City<input name="shipCity" type="text" value="${addressState.shipCity}" ${shipDisabled} required /></label>
+          <div class="address-row">
+            <label>State<input name="shipState" type="text" value="${addressState.shipState}" ${shipDisabled} required /></label>
+            <label>ZIP<input name="shipZip" type="text" value="${addressState.shipZip}" ${shipDisabled} required /></label>
+          </div>
+        </fieldset>
+      </form>
+      <p id="addressErrorBanner" class="message error" ${addressMessage ? "" : "hidden"}>${addressMessage || ""}</p>
+
+      <div class="cart-summary totals-block">
+        <div class="totals-lines">
+          <p>Subtotal: <strong>${formatMoney(subtotal)}</strong></p>
+          <p>Shipping: <strong>${shipping === 0 ? "Free" : formatMoney(shipping)}</strong></p>
+          <p class="cart-total">Order total: <span id="cartTotalAmount">${formatMoney(orderTotal)}</span></p>
+          <p class="shipping-hint">Shipping is $7.50, or free on merchandise of $75+.</p>
+        </div>
         <div class="actions">
           <button type="button" class="btn btn-primary" id="placeOrderBtn">Place Order</button>
           <button type="button" class="btn btn-danger" id="cancelOrderBtn">Cancel Order</button>
@@ -81,8 +188,25 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
+    const form = document.getElementById("checkoutAddresses");
+    form.addEventListener("input", () => {
+      readAddressFields();
+      if (addressState.sameAsBilling) {
+        form.shipName.value = addressState.billName;
+        form.shipStreet.value = addressState.billStreet;
+        form.shipCity.value = addressState.billCity;
+        form.shipState.value = addressState.billState;
+        form.shipZip.value = addressState.billZip;
+      }
+    });
+    form.sameAsBilling.addEventListener("change", () => {
+      readAddressFields();
+      renderCart();
+    });
+
     content.querySelectorAll(".qty-input").forEach((input) => {
       input.addEventListener("input", () => {
+        readAddressFields();
         const result = setCartQuantity(input.dataset.productId, input.value);
         stockMessage = result && result.ok === false ? result.error : "";
         renderCart();
@@ -90,16 +214,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("placeOrderBtn").addEventListener("click", () => {
+      readAddressFields();
       if (cartHasStockErrors()) {
         stockMessage =
           "Fix quantities that exceed on-hand stock before placing your order.";
+        addressMessage = "";
         renderCart();
         return;
       }
+      if (!addressesComplete()) {
+        addressMessage = "Enter complete bill-to and ship-to addresses before placing your order.";
+        renderCart();
+        return;
+      }
+
       const code = createConfirmationNumber();
       confirmationNumber.textContent = code;
+      if (confirmDetails) {
+        confirmDetails.innerHTML = `
+          <p><strong>Bill to</strong></p>
+          <pre>${formatAddress("bill")}</pre>
+          <p><strong>Ship to</strong></p>
+          <pre>${formatAddress("ship")}</pre>
+          <p>Subtotal ${formatMoney(subtotal)} · Shipping ${shipping === 0 ? "Free" : formatMoney(shipping)} · Total ${formatMoney(orderTotal)}</p>
+        `;
+      }
       confirmBox.hidden = false;
       stockMessage = "";
+      addressMessage = "";
       clearCart();
       renderCart();
     });
@@ -108,7 +250,9 @@ document.addEventListener("DOMContentLoaded", () => {
       clearCart();
       confirmBox.hidden = true;
       confirmationNumber.textContent = "";
+      if (confirmDetails) confirmDetails.innerHTML = "";
       stockMessage = "";
+      addressMessage = "";
       renderCart();
     });
   }
